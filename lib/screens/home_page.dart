@@ -1,6 +1,8 @@
 import 'package:coffee_shop_ui/pallete.dart';
+import 'package:coffee_shop_ui/screens/main_menu_screen.dart';
 import 'package:coffee_shop_ui/widgets/login_button.dart';
 import 'package:coffee_shop_ui/widgets/social_button.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -85,6 +87,35 @@ class _HomePageState extends State<HomePage> {
                 Expanded(
                   child: Image.asset(
                     'assets/images/LoginCoffee.png',
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context, CupertinoPageRoute(
+                      builder: (context) {
+                        return const MainMenuScreen();
+                      },
+                    ));
+                  },
+                  splashColor: Colors.transparent, // Remove splash color
+                  highlightColor: Colors.transparent, // Remove highlight color
+                  child: const SizedBox(
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text(
+                        'Skip!',
+                        style: TextStyle(
+                          color: Pallete.white,
+                          fontSize: 20,
+                          shadows: [
+                            Shadow(
+                              color: Pallete.white,
+                              blurRadius: 40,
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ],
