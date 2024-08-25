@@ -1,6 +1,7 @@
 import 'package:coffee_shop_ui/Model/coffee.dart';
 import 'package:coffee_shop_ui/utils/pallete.dart';
 import 'package:coffee_shop_ui/widgets/quantity_buttons.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_stars/flutter_rating_stars.dart';
 
@@ -18,6 +19,7 @@ class CoffeeDetailScreen extends StatefulWidget {
 class _CoffeeDetailScreenState extends State<CoffeeDetailScreen> {
   bool isFavorite = false;
   double _rating = 3.0; // Default rating value
+  bool switchValue = false;
   int quantity = 1;
 
   @override
@@ -34,6 +36,7 @@ class _CoffeeDetailScreenState extends State<CoffeeDetailScreen> {
     return Scaffold(
       backgroundColor: widget.coffee.color,
       body: SafeArea(
+        bottom: false,
         child: Column(
           children: [
             Padding(
@@ -200,6 +203,57 @@ class _CoffeeDetailScreenState extends State<CoffeeDetailScreen> {
                                     ],
                                   ),
                                 ],
+                              ),
+                              SizedBox(height: size.height * 0.04),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Text(
+                                    'L',
+                                    style: TextStyle(
+                                      color: Pallete.black,
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  CupertinoSwitch(
+                                      activeColor: widget.coffee.color,
+                                      value: switchValue,
+                                      onChanged: (value) {
+                                        setState(() {
+                                          switchValue = value;
+                                        });
+                                      }),
+                                  const SizedBox(width: 10),
+                                  const Text(
+                                    'S',
+                                    style: TextStyle(
+                                      color: Pallete.black,
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: size.height * 0.04),
+                              Container(
+                                height: 70,
+                                width: size.width * 0.6,
+                                decoration: BoxDecoration(
+                                  color: widget.coffee.color,
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: const Center(
+                                  child: Text(
+                                    "Order Now",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 30,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ),
                               )
                             ],
                           ),
