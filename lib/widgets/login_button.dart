@@ -1,5 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:coffee_shop_ui/pallete.dart';
+import 'package:coffee_shop_ui/utils/pallete.dart';
 import 'package:flutter/material.dart';
 // Ensure this imports the correct file
 

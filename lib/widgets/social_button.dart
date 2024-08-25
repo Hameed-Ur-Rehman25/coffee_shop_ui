@@ -1,4 +1,4 @@
-import 'package:coffee_shop_ui/pallete.dart';
+import 'package:coffee_shop_ui/utils/pallete.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

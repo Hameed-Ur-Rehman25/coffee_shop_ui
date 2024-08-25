@@ -1,4 +1,4 @@
-import 'package:coffee_shop_ui/pallete.dart';
+import 'package:coffee_shop_ui/utils/pallete.dart';
 import 'package:coffee_shop_ui/screens/main_menu_screen.dart';
 import 'package:coffee_shop_ui/widgets/login_button.dart';
 import 'package:coffee_shop_ui/widgets/social_button.dart';
