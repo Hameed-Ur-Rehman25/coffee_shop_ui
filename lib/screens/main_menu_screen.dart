@@ -1,10 +1,17 @@
+import 'package:coffee_shop_ui/Model/coffee.dart';
 import 'package:coffee_shop_ui/utils/pallete.dart';
+import 'package:coffee_shop_ui/widgets/item_card.dart';
 import 'package:coffee_shop_ui/widgets/search_box.dart';
 import 'package:flutter/material.dart';
 
-class MainMenuScreen extends StatelessWidget {
+class MainMenuScreen extends StatefulWidget {
   const MainMenuScreen({super.key});
 
+  @override
+  State<MainMenuScreen> createState() => _MainMenuScreenState();
+}
+
+class _MainMenuScreenState extends State<MainMenuScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,8 +41,25 @@ class MainMenuScreen extends StatelessWidget {
                 height: 10,
               ),
               const SearchBox(),
+              const SizedBox(height: 25),
+              Expanded(
+                child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 0.8,
+                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 20,
+                  ),
+                  itemCount: Coffee.coffeeItemList.length,
+                  itemBuilder: (context, index) {
+                    return ItemCard(
+                      index: index,
+                    );
+                  },
+                ),
+              ),
               const SizedBox(
-                height: 30,
+                height: 5,
               ),
             ],
           ),
